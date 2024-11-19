@@ -6,27 +6,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FYI.Data.Models.Master
+namespace FYI.Business.Models
 {
-    public abstract class BaseClass
+    public abstract class BaseModel
     {
-        [BsonId]
-        [BsonRepresentation(BsonType.ObjectId)]
-        public string Id { get; set; }
-
-        [BsonElement("active")]
+        public string? Id { get; set; }
         public bool Active { get; set; }
-
-        [BsonElement("published")]
         public bool Published { get; set; }
-
-        [BsonElement("createdon")]
         public DateTime CreatedOn { get; set; }
-
-        [BsonElement("updatedby")]
         public string? UpdatedBy { get; set; }
-
-        [BsonElement("lastUpdated")]
         public DateTime LastUpdated { get; set; }
     }
+
 }

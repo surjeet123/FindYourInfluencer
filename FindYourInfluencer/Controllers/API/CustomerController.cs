@@ -1,4 +1,4 @@
-﻿using FYI.Business.Models.Customer;
+﻿using FYI.Business.Models;
 using FYI.Data.Models;
 using FYI.Data.Services.ManageCustomer;
 using Microsoft.AspNetCore.Http;
@@ -19,17 +19,6 @@ namespace FindYourInfluencer.Controllers.API
         [HttpPost("SaveCustomer")]
         public ActionResult<Customer> AddCustomer([FromBody] CustomerModel customer)
         {
-            if (customer == null)
-            {
-                return BadRequest("Customer data is required.");
-            }
-
-            // Simple validation: Ensure a customer name is provided
-            if (string.IsNullOrWhiteSpace(customer.CustomerName))
-            {
-                return BadRequest("Customer name is required.");
-            }
-
             // Set the CreatedOn date to the current time
             customer.CreatedOn = DateTime.Now;
 

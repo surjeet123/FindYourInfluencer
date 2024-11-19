@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using FYI.Business.Models.Customer;
+using FYI.Business.Models;
 using FYI.Data.Core;
 using FYI.Data.Models;
 using System;
@@ -22,7 +22,7 @@ namespace FYI.Data.Services.ManageCustomer
         public bool CreateCustomer(CustomerModel Model)
         {
             var newCustomer = _mapper.Map<Customer>(Model);
-            _unitOfWork.CustomerRepository.InsertAsync(newCustomer).Wait();
+             _unitOfWork.CustomerRepository.InsertAsync(newCustomer).Wait();
             _unitOfWork.Save().Wait();
             return true;
         }

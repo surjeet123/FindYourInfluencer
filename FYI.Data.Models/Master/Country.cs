@@ -10,10 +10,6 @@ namespace FYI.Data.Models.Master
 {
     public class Country : BaseClass
     {
-        [BsonId]
-        [BsonRepresentation(BsonType.Int32)]
-        public int CountryID { get; set; }
-
         [BsonElement("countryname")]
         public string? CountryName { get; set; }
     }

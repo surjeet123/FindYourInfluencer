@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using FYI.Business.Models.Customer;
+using FYI.Business.Models;
 using FYI.Data.Models;
 using System;
 using System.Collections.Generic;
