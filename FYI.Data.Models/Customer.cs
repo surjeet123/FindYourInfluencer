@@ -11,11 +11,11 @@ namespace FYI.Data.Models
 {
     public class Customer : BaseClass
     {
-        [BsonElement("customername")]
-        public string? CustomerName { get; set; }
+        [BsonElement("firstname")]
+        public string? FirstName { get; set; }
 
-        [BsonElement("cityid")]
-        public int CityID { get; set; }
+        [BsonElement("lastname")]
+        public string? LastName { get; set; }
 
         [BsonElement("emailaddress")]
         public string? EmailAddress { get; set; }
@@ -29,22 +29,13 @@ namespace FYI.Data.Models
         [BsonElement("ismobileverified")]
         public bool IsMobileVerified { get; set; }
 
-        [BsonElement("createdon")]
-        public DateTime CreatedOn { get; set; }
+        [BsonElement("loginproviderid")]
+        public int LoginProviderID { get; set; }//1 for self registration, 2 for google, 3 for facebook
 
-        [BsonElement("gender")]
-        public string? Gender { get; set; }
+        [BsonElement("isverified")]
+        public bool IsVerified { get; set; }
 
-        [BsonElement("dateofbirth")]
-        public DateTime DateOfBirth { get; set; }
-
-        [BsonElement("biodetails")]
-        public string? BioDetails { get; set; }
-
-        [BsonElement("isbrand")]
-        public bool IsBrand { get; set; }
-
-        [BsonElement("profileimageurl")]
-        public string? ProfileImageURL { get; set; }
+        [BsonElement("lastlogindate")]
+        public DateTime LastLoginDate { get; set; }
     }
 }

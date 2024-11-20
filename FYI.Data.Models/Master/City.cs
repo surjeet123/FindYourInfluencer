@@ -10,10 +10,6 @@ namespace FYI.Data.Models.Master
 {
     public class City : BaseClass
     {
-        [BsonId]
-        [BsonRepresentation(BsonType.Int32)]
-        public int CityID { get; set; }
-
         [BsonElement("cityname")]
         public string? CityName { get; set; }
     }

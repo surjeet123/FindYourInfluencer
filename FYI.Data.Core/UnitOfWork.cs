@@ -14,6 +14,7 @@ namespace FYI.Data.Core
     {
         private readonly IMongoDatabase _database;
         private IRepository<Customer> _customerRepository;
+        private IRepository<CustomerPassword> _customerPasswordRepository;
         public UnitOfWork(IMongoClient mongoClient)
         {
             _database = mongoClient.GetDatabase("FindYourInfluencer");
@@ -27,6 +28,17 @@ namespace FYI.Data.Core
                     _customerRepository = new GenericRepository<Customer>(_database, "customers");
                 }
                 return _customerRepository;
+            }
+        }
+        public IRepository<CustomerPassword> CustomerPasswordRepository
+        {
+            get
+            {
+                if (_customerPasswordRepository == null)
+                {
+                    _customerPasswordRepository = new GenericRepository<CustomerPassword>(_database, "customerpasswords");
+                }
+                return _customerPasswordRepository;
             }
         }
 

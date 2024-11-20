@@ -10,10 +10,6 @@ namespace FYI.Data.Models.Master
 {
     public class Category : BaseClass
     {
-        [BsonId]
-        [BsonRepresentation(BsonType.Int32)]
-        public int CategoryID { get; set; }
-
         [BsonElement("categoryname")]
         public string? CategoryName { get; set; }
     }

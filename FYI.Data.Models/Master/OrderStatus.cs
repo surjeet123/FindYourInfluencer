@@ -10,10 +10,6 @@ namespace FYI.Data.Models.Master
 {
     public class OrderStatus : BaseClass
     {
-        [BsonId]
-        [BsonRepresentation(BsonType.Int32)]
-        public int OrderStatusID { get; set; }
-
         [BsonElement("statusname")]
         public string? StatusName { get; set; }
     }

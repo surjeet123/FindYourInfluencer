@@ -10,9 +10,8 @@ namespace FYI.Business.Models
 {
     public abstract class BaseModel
     {
-        public string? Id { get; set; }
+        public string Id { get; set; }
         public bool Active { get; set; }
-        public bool Published { get; set; }
         public DateTime CreatedOn { get; set; }
         public string? UpdatedBy { get; set; }
         public DateTime LastUpdated { get; set; }

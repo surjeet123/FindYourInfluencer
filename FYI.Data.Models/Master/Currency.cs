@@ -10,10 +10,6 @@ namespace FYI.Data.Models.Master
 {
     public class Currency : BaseClass
     {
-        [BsonId]
-        [BsonRepresentation(BsonType.Int32)]
-        public int CurrencyID { get; set; }
-
         [BsonElement("currencyname")]
         public int CurrencyName { get; set; }
     }

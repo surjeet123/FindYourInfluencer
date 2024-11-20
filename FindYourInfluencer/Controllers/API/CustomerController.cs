@@ -1,8 +1,10 @@
-﻿using FYI.Business.Models;
+﻿using FindYourInfluencer.Helper;
+using FYI.Business.Models;
 using FYI.Data.Models;
 using FYI.Data.Services.ManageCustomer;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Swashbuckle.AspNetCore.Annotations;
 
 namespace FindYourInfluencer.Controllers.API
 {
@@ -16,11 +18,10 @@ namespace FindYourInfluencer.Controllers.API
             _CustomerService = CustomerService;
         }
 
-        [HttpPost("SaveCustomer")]
-        public ActionResult<Customer> AddCustomer([FromBody] CustomerModel customer)
+        [HttpPost("RegisterCustomer")]
+        public ActionResult<Customer> CustomerRegistration([FromBody] CustomerRegisterModel customer)
         {
             // Set the CreatedOn date to the current time
-            customer.CreatedOn = DateTime.Now;
 
             // In a real-world scenario, you'd save this to the database
             _CustomerService.CreateCustomer(customer);
@@ -28,5 +29,6 @@ namespace FindYourInfluencer.Controllers.API
             // Return the newly added customer
             return Ok();
         }
+
     }
 }

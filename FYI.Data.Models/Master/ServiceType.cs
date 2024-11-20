@@ -10,10 +10,6 @@ namespace FYI.Data.Models.Master
 {
     public class ServiceType : BaseClass
     {
-        [BsonId]
-        [BsonRepresentation(BsonType.Int32)]
-        public int ServiceTypeID { get; set; }
-
         [BsonElement("servicetypename")]
         public string? ServiceTypeName { get; set; }
     }

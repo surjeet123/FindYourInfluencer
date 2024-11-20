@@ -10,15 +10,19 @@ namespace FYI.Data.Models.Master
 {
     public abstract class BaseClass
     {
+        // Constructor to set default values
+        public BaseClass()
+        {
+            Active = true; // Default value for Active
+            CreatedOn = DateTime.UtcNow; // Default CreatedOn to current time
+            LastUpdated = DateTime.UtcNow; // Default LastUpdated to current time
+        }
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
 
         [BsonElement("active")]
         public bool Active { get; set; }
-
-        [BsonElement("published")]
-        public bool Published { get; set; }
 
         [BsonElement("createdon")]
         public DateTime CreatedOn { get; set; }

@@ -10,17 +10,16 @@ namespace FYI.Data.Models.Master
 {
     public class MarketingService : BaseClass
     {
-        [BsonId]
-        [BsonRepresentation(BsonType.Int32)]
-        public int MarketingServiceID { get; set; }
-
         [BsonElement("servicename")]
+        [BsonRepresentation(BsonType.ObjectId)]
         public string? ServiceName { get; set; }
 
         [BsonElement("platformid")]
+        [BsonRepresentation(BsonType.ObjectId)]
         public int PlatformID { get; set; }
 
         [BsonElement("servicetypeid")]
+        [BsonRepresentation(BsonType.ObjectId)]
         public int ServiceTypeID { get; set; }
     }
 }

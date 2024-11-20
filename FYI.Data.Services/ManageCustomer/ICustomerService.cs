@@ -9,6 +9,6 @@ namespace FYI.Data.Services.ManageCustomer
 {
     public  interface ICustomerService
     {
-        bool CreateCustomer(CustomerModel Model);
+        bool CreateCustomer(CustomerRegisterModel Model);
     }
 }

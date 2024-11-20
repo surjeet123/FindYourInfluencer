@@ -10,10 +10,6 @@ namespace FYI.Data.Models.Master
 {
     public class LoginProvider : BaseClass
     {
-        [BsonId]
-        [BsonRepresentation(BsonType.Int32)]
-        public int LoginProviderID { get; set; }
-
         [BsonElement("providername")]
         public string? ProviderName { get; set; }
     }
