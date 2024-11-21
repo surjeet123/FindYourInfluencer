@@ -81,6 +81,17 @@ namespace FYI.Data.Services.Utilities
 
             return sr.ReadToEnd();
         }
+        public static int Generate4DigitNumber()
+        {
+            using (var rng = RandomNumberGenerator.Create())
+            {
+                byte[] bytes = new byte[2]; // 16 bits = enough to generate a number in the 4-digit range
+                rng.GetBytes(bytes);
 
+                // Convert bytes to a number and limit to 4-digit range
+                int value = BitConverter.ToUInt16(bytes, 0) % 9000 + 1000; // Range 1000-9999
+                return value;
+            }
+        }
     }
 }

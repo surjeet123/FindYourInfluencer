@@ -47,6 +47,11 @@ namespace FYI.Data.Core.Generic
 
             return result.ModifiedCount > 0;
         }
+        public async Task<bool> UpdateManyAsync(Expression<Func<TDocument, bool>> filter, UpdateDefinition<TDocument> update)
+        {
+            var result = await _collection.UpdateManyAsync(filter, update);
+            return result.ModifiedCount > 0;
+        }
 
         public async Task<bool> DeleteAsync(Expression<Func<TDocument, bool>> filter)
         {

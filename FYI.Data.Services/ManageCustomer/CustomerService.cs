@@ -9,6 +9,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Security.Cryptography;
+using MongoDB.Driver;
 
 namespace FYI.Data.Services.ManageCustomer
 {
@@ -44,8 +46,35 @@ namespace FYI.Data.Services.ManageCustomer
             };
             _unitOfWork.CustomerPasswordRepository.InsertAsync(customerPassword).Wait();
             _unitOfWork.Save().Wait();
-
+            GenerateVerificationCode(newCustomer.Id);
             return true;
         }
+        public bool GenerateVerificationCode(string customerID, bool checkExisting = false)
+        {
+            if (checkExisting)//Deactivate already issued verification code
+            {
+                // Define the update operation
+                var update = Builders<CustomerVerificationCode>.Update.Set(x => x.Active, false);
+                // Perform the update operation
+               _unitOfWork.CustomerVerificationCodeRepository.UpdateManyAsync((x => x.CustomerID == customerID && x.Active == true), update);
+            }
+            var verificationCode = EncryptionUtilities.Generate4DigitNumber().ToString();
+            var hashedCode = EncryptionUtilities.HashRawText(verificationCode);
+            var customerVerificationModel = new CustomerVerificationCode
+            {
+                CustomerID = customerID,
+                VerificationCode = hashedCode.HashedValue,
+                Salt = hashedCode.Salt
+            };
+            _unitOfWork.CustomerVerificationCodeRepository.InsertAsync(customerVerificationModel).Wait();
+            _unitOfWork.Save().Wait();
+            return true;
+        }
+        public bool VerifyCode(string customerID, string code)
+        {
+            var model = _unitOfWork.CustomerVerificationCodeRepository.GetFirstAsync(x => x.CustomerID == customerID && x.Active == true).Result;
+            return EncryptionUtilities.VerifyHashValue(code, model.VerificationCode, model.Salt);
+        }
+       
     }
 }

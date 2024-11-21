@@ -17,6 +17,7 @@ namespace FYI.Data.Core.Generic
 
         Task<bool> UpdateAsync(Expression<Func<TDocument, bool>> filter, UpdateDefinition<TDocument> update);
         Task<bool> DeleteAsync(Expression<Func<TDocument, bool>> filter);
+        Task<bool> UpdateManyAsync(Expression<Func<TDocument, bool>> filter, UpdateDefinition<TDocument> update);
         Task<bool> DeleteMultiAsync(Expression<Func<TDocument, bool>> filter);
     }
 }

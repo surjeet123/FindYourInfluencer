@@ -10,5 +10,7 @@ namespace FYI.Data.Services.ManageCustomer
     public  interface ICustomerService
     {
         bool CreateCustomer(CustomerRegisterModel Model);
+        bool GenerateVerificationCode(string customerID, bool checkExisting = false);
+        bool VerifyCode(string customerID, string code);
     }
 }

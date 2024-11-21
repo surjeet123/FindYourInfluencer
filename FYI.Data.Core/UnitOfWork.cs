@@ -15,32 +15,15 @@ namespace FYI.Data.Core
         private readonly IMongoDatabase _database;
         private IRepository<Customer> _customerRepository;
         private IRepository<CustomerPassword> _customerPasswordRepository;
+        private IRepository<CustomerVerificationCode> _customerVerificationCodeRepository;
         public UnitOfWork(IMongoClient mongoClient)
         {
             _database = mongoClient.GetDatabase("FindYourInfluencer");
         }
-        public IRepository<Customer> CustomerRepository
-        {
-            get
-            {
-                if (_customerRepository == null)
-                {
-                    _customerRepository = new GenericRepository<Customer>(_database, "customers");
-                }
-                return _customerRepository;
-            }
-        }
-        public IRepository<CustomerPassword> CustomerPasswordRepository
-        {
-            get
-            {
-                if (_customerPasswordRepository == null)
-                {
-                    _customerPasswordRepository = new GenericRepository<CustomerPassword>(_database, "customerpasswords");
-                }
-                return _customerPasswordRepository;
-            }
-        }
+        public IRepository<Customer> CustomerRepository => _customerRepository ??= new GenericRepository<Customer>(_database, "customers");
+        public IRepository<CustomerPassword> CustomerPasswordRepository => _customerPasswordRepository ??= new GenericRepository<CustomerPassword>(_database, "customerpasswords");
+        public IRepository<CustomerVerificationCode> CustomerVerificationCodeRepository => _customerVerificationCodeRepository ??= new GenericRepository<CustomerVerificationCode>(_database, "customerverificationcodes");
+
 
         public async Task Save()
         {

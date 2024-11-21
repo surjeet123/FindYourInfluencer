@@ -29,6 +29,28 @@ namespace FindYourInfluencer.Controllers.API
             // Return the newly added customer
             return Ok();
         }
+        [HttpPost("ResendVerificationCode")]
+        public ActionResult<Customer> ResendVerificationCode([FromBody] string customerID)
+        {
+            // Set the CreatedOn date to the current time
+
+            // In a real-world scenario, you'd save this to the database
+            _CustomerService.GenerateVerificationCode(customerID, true);
+
+            // Return the newly added customer
+            return Ok(true);
+        }
+        [HttpPost("VerifyCustomerVerificationCode")]
+        public ActionResult<Customer> VerifyCustomerVerificationCode([FromBody] string customerID, string code)
+        {
+            // Set the CreatedOn date to the current time
+
+            // In a real-world scenario, you'd save this to the database
+            var result = _CustomerService.VerifyCode(customerID, code);
+
+            // Return the newly added customer
+            return Ok(result);
+        }
 
     }
 }
