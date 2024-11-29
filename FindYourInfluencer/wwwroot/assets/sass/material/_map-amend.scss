@@ -1,0 +1,7 @@
+$custom-colors:(
+    "custom-green":rgb(0, 177, 9),
+    "custom-pink":rgb(217, 0, 192),
+    "c-cyan":rgb(49, 255, 241),
+    "c-helllo":rgb(49, 255, 241), 
+);
+$theme-colors: map-merge($theme-colors, $custom-colors );

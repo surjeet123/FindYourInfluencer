@@ -1,0 +1,207 @@
+.horizental-accordioin,
+.vertical-accordioin {
+    .nav-tabs {
+        .nav-link {
+            &:focus {
+
+                outline: 0;
+                box-shadow: none;
+            }
+
+            &:focus-visible {
+                outline: 0;
+                background-color: var(--cs-focus);
+                box-shadow: none;
+            }
+        }
+    }
+}
+
+.horizental-accordioin,
+.vertical-accordioin {
+    .nav-tabs {
+        .nav-link {
+            &:focus {
+
+                outline: 0;
+                box-shadow: none;
+            }
+
+            &:focus-visible {
+                outline: 0;
+                background-color: var(--cs-focus);
+                box-shadow: none;
+            }
+        }
+    }
+}
+
+
+/* Horizental */
+.horizental-accordioin {
+    .nav-link-acc {
+        display: none;
+    }
+
+    ul.nav {
+        margin: 0;
+        flex-wrap: wrap;
+        flex-direction: column;
+        margin-right: -1px;
+        border: 0;
+    }
+
+    p {
+        margin-block-start: 0;
+        margin-block-end: 1rem;
+    }
+
+    .horizental-accordioin-item {
+        display: flex;
+
+    }
+
+    .nav-tabs,
+    .nav.nav-pills {
+        flex-direction: column;
+        flex: 1 1 240px;
+        max-width: 240px;
+        margin-right: -1px;
+    }
+
+    .tab-content {
+        flex: 1 1 calc(100% - 240px);
+        max-width: calc(100% - 240px);
+    }
+
+
+
+    .nav-item {
+        border: 0;
+        font-weight: 600;
+
+        .nav-link {
+            border: 1px solid transparent;
+            border-radius: 0;
+            color: #d0b483;
+            padding: 0.7rem 1rem;
+            width: 100%;
+            text-align: left;
+            white-space: normal;
+            word-break: break-word;
+            text-align: left;
+        }
+
+        input {
+            text-align: left;
+            width: 100%;
+        }
+
+        .active {
+            border: transparent;
+            background: #d0b483;
+            z-index: 30;
+            position: relative;
+            border-right: 2px solid var(--white);
+            color: white;
+            border-radius: 5px;
+        }
+        
+
+
+    }
+    .tab-pane{
+        padding: 0 0 30px 30px  !important;
+        img{
+            width: 100%;
+            border-radius: 5px;
+            border: 1px solid black;
+        }
+    }
+}
+
+@media (max-width:991px) {
+    .horizental-accordioin {
+        .tab-content {
+            flex: 1 1 100%;
+            max-width: 100%;
+            border: 0px solid var(--black);
+        }
+
+        .nav-link-acc {
+            display: block;
+            width: 100%;
+            text-align: left;
+            background: transparent;
+            border: 0;
+            border-bottom: 1px solid var(--black);
+            padding-top: 0.8rem;
+            padding-bottom: 0.8rem;
+            font-weight: 600;
+            position: relative;
+
+            &:before {
+                content: "";
+                position: absolute;
+                right: 10px;
+                top: 1rem;
+                width: 10px;
+                height: 10px;
+                border-bottom: 1px solid var(--black);
+                border-left: 1px solid var(--black);
+                transform: rotate(-45deg);
+            }
+
+            &.is-active {
+                border: 0;
+            }
+        }
+
+        .nav-tabs {
+            display: none;
+        }
+
+        .tab-pane {
+            border: 0;
+
+            &.is-active {
+                border-bottom: 1px solid var(--black);
+            }
+        }
+    }
+}
+
+.accordion-button {
+    white-space: normal;
+    word-break: break-word;
+}
+
+@media (min-width:992px) {
+    .tab-content.accordion {
+        div.accordion-body {
+            padding: 0;
+        }
+    }
+}
+
+@media (max-width:991px) {
+    .tab-content.accordion>.tab-pane {
+        display: block;
+        opacity: 1;
+        padding: 0 !important;
+        border-bottom: 1px solid var(--black);
+    }
+
+}
+
+.price-table{
+    table{
+        width: 100%;
+        th,td{
+            padding: 10px;
+            font-size: 14px;
+            text-align: left;
+            border: 1px solid;
+        }
+    }
+}

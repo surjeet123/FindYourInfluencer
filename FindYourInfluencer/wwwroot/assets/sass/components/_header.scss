@@ -1,0 +1,45 @@
+.site-header{
+    background-color: white;
+    height: 90px;
+    padding: 10px 0;
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.05), inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+    .row{
+        align-items: center;
+    }
+    .navbar-brand{
+        display: block;
+        img{
+            height: 66px;
+            width: auto;
+        }
+    }
+    .flex-row{        
+        justify-content: flex-end;
+        flex: 1;
+        align-items: center;
+    }
+    .main-menu{
+        display: flex;
+        list-style: none;
+        margin-bottom: 0;
+        padding: 0;
+        margin-right: 60px;
+        li{
+            margin: 0 15px;
+            text-transform: capitalize;
+            a{
+                color: var(--primary);
+                text-decoration: none;
+                position: relative;
+                border-bottom: 2px dashed white;
+                &.active,&:hover{
+                    color: var(--brandColor);
+                    text-decoration: none;
+                    transition: all 0.3s ease-in-out;
+                    border-bottom: 2px solid var(--brandColor);
+                }
+            }
+        }
+    }
+}

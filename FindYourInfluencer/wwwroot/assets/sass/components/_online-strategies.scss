@@ -1,0 +1,36 @@
+.online-strategies{
+	.flex-row{
+		align-items: center;
+		justify-content: center;
+	}
+	.strategies-item{
+		padding: 0 30px;
+		text-align: center;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		p{
+			margin-bottom: 0;
+			font-size: 18px;
+			font-weight: 600;
+			line-height: 30px;
+			color: #595959;
+			margin-top: 5px;
+		}
+	}
+	.strategies-icon {
+		box-shadow: 2px 2px 8px 0px #6C6B6B26;
+		border: 1px solid #E8E8E8;
+		width: 60px;
+		height: 60px;
+		border-radius: 50%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		img{
+			width: 40px;
+			margin: 0 auto;
+		}
+	}
+}

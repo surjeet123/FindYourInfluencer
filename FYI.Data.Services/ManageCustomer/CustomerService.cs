@@ -64,7 +64,8 @@ namespace FYI.Data.Services.ManageCustomer
             {
                 CustomerID = customerID,
                 VerificationCode = hashedCode.HashedValue,
-                Salt = hashedCode.Salt
+                Salt = hashedCode.Salt,
+                Active = true
             };
             _unitOfWork.CustomerVerificationCodeRepository.InsertAsync(customerVerificationModel).Wait();
             _unitOfWork.Save().Wait();

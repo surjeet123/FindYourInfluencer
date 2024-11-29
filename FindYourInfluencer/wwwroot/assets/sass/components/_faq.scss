@@ -1,0 +1,28 @@
+.faq {
+    .accordion {
+        border: 0;
+    }
+    .accordion-item{
+        border: 0;
+        border-bottom: 2px solid #979797;
+        margin-bottom: 25px;
+    }
+    .accordion-button {
+        background: white !important;
+        border: 0 !important;
+        box-shadow: none !important;
+        font-size: 20px;
+        font-weight: 400;
+        line-height: 30px;
+        color: #434343;
+        padding: 0 0 10px;
+    }
+    .accordion-body{
+        padding: 0;
+        color: #838383;
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 30px;
+        padding: 0 0 10px;
+    }
+}

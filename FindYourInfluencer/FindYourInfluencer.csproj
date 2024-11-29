@@ -7,6 +7,85 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\assets\images\cropped-favicon-1-32x32.webp" />
+    <None Include="wwwroot\assets\images\delete.svg" />
+    <None Include="wwwroot\assets\images\footer-logo.png" />
+    <None Include="wwwroot\assets\images\GridImage.png" />
+    <None Include="wwwroot\assets\images\Group 3.png" />
+    <None Include="wwwroot\assets\images\Group1.png" />
+    <None Include="wwwroot\assets\images\Group2.png" />
+    <None Include="wwwroot\assets\images\icons\1.png" />
+    <None Include="wwwroot\assets\images\icons\2.png" />
+    <None Include="wwwroot\assets\images\icons\3.png" />
+    <None Include="wwwroot\assets\images\icons\4.png" />
+    <None Include="wwwroot\assets\images\icons\Bank Card Dollar.png" />
+    <None Include="wwwroot\assets\images\icons\Bank Card Euro.png" />
+    <None Include="wwwroot\assets\images\icons\Beautician.png" />
+    <None Include="wwwroot\assets\images\icons\Book And Pencil.png" />
+    <None Include="wwwroot\assets\images\icons\Chat Room.png" />
+    <None Include="wwwroot\assets\images\icons\Dollar Coin.png" />
+    <None Include="wwwroot\assets\images\icons\email.png" />
+    <None Include="wwwroot\assets\images\icons\Facebook.png" />
+    <None Include="wwwroot\assets\images\icons\Group 52.png" />
+    <None Include="wwwroot\assets\images\icons\Idea.png" />
+    <None Include="wwwroot\assets\images\icons\insta.png" />
+    <None Include="wwwroot\assets\images\icons\instagram logo.png" />
+    <None Include="wwwroot\assets\images\icons\People in Car Side View.png" />
+    <None Include="wwwroot\assets\images\icons\phone.png" />
+    <None Include="wwwroot\assets\images\icons\Search.svg" />
+    <None Include="wwwroot\assets\images\icons\Single Mother.png" />
+    <None Include="wwwroot\assets\images\icons\Smiling.png" />
+    <None Include="wwwroot\assets\images\icons\Team.png" />
+    <None Include="wwwroot\assets\images\icons\x.png" />
+    <None Include="wwwroot\assets\images\icons\youtube logo.png" />
+    <None Include="wwwroot\assets\images\icons\YouTube.png" />
+    <None Include="wwwroot\assets\images\logo.png" />
+    <None Include="wwwroot\assets\images\Neha.jpg" />
+    <None Include="wwwroot\assets\js\bootstrap\bootstrap.bundle.min.js" />
+    <None Include="wwwroot\assets\js\bootstrap\bootstrap.min.css" />
+    <None Include="wwwroot\assets\js\common.js" />
+    <None Include="wwwroot\assets\js\header-footer.js" />
+    <None Include="wwwroot\assets\js\image-gallery\image-gallary.js" />
+    <None Include="wwwroot\assets\js\jbi-blocks-editor.js" />
+    <None Include="wwwroot\assets\js\jquery-3.7.1.min.js" />
+    <None Include="wwwroot\assets\js\slick\accessible-slick-theme.css" />
+    <None Include="wwwroot\assets\js\slick\accessible-slick-theme.css.map" />
+    <None Include="wwwroot\assets\js\slick\accessible-slick-theme.min.css" />
+    <None Include="wwwroot\assets\js\slick\accessible-slick-theme.scss" />
+    <None Include="wwwroot\assets\js\slick\ajax-loader.gif" />
+    <None Include="wwwroot\assets\js\slick\fonts\slick.eot" />
+    <None Include="wwwroot\assets\js\slick\fonts\slick.svg" />
+    <None Include="wwwroot\assets\js\slick\fonts\slick.ttf" />
+    <None Include="wwwroot\assets\js\slick\fonts\slick.woff" />
+    <None Include="wwwroot\assets\js\slick\slick-theme.css" />
+    <None Include="wwwroot\assets\js\slick\slick-theme.css.map" />
+    <None Include="wwwroot\assets\js\slick\slick-theme.min.css" />
+    <None Include="wwwroot\assets\js\slick\slick-theme.scss" />
+    <None Include="wwwroot\assets\js\slick\slick.css" />
+    <None Include="wwwroot\assets\js\slick\slick.css.map" />
+    <None Include="wwwroot\assets\js\slick\slick.js" />
+    <None Include="wwwroot\assets\js\slick\slick.min.css" />
+    <None Include="wwwroot\assets\js\slick\slick.min.js" />
+    <None Include="wwwroot\assets\js\slick\slick.scss" />
+    <None Include="wwwroot\assets\sass\components\_content-grid.scss" />
+    <None Include="wwwroot\assets\sass\components\_faq.scss" />
+    <None Include="wwwroot\assets\sass\components\_footer.scss" />
+    <None Include="wwwroot\assets\sass\components\_header.scss" />
+    <None Include="wwwroot\assets\sass\components\_how-it-works.scss" />
+    <None Include="wwwroot\assets\sass\components\_influencer.scss" />
+    <None Include="wwwroot\assets\sass\components\_main-banner.scss" />
+    <None Include="wwwroot\assets\sass\components\_online-strategies.scss" />
+    <None Include="wwwroot\assets\sass\components\_tabs.scss" />
+    <None Include="wwwroot\assets\sass\components\_two-col-img-content-grid.scss" />
+    <None Include="wwwroot\assets\sass\main.css" />
+    <None Include="wwwroot\assets\sass\main.css.map" />
+    <None Include="wwwroot\assets\sass\main.scss" />
+    <None Include="wwwroot\assets\sass\material\_map-amend.scss" />
+    <None Include="wwwroot\assets\sass\material\_mixins.scss" />
+    <None Include="wwwroot\assets\sass\material\_variables.scss" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="13.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.36" />
     <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="8.2.1" />

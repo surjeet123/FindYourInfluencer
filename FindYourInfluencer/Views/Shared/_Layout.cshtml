@@ -1,13 +1,143 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
+<html lang="en">
 
-<html>
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Home page</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Influencer</title>
+    <link href="~/assets/js/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/assets/js/slick/accessible-slick-theme.min.css" rel="stylesheet" />
+    <link href="~/assets/js/slick/slick.min.css" rel="stylesheet" />
+    <link href="~/assets/sass/main.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Hand:wght@400..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap"
+          rel="stylesheet">
 </head>
+
 <body>
-    <div>
-        @RenderBody()
-    </div>
+    @Html.Partial("_Header")
+    
+    
+    @RenderBody()
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="footer-logo">
+                        <img src="assets/images/footer-logo.png" />
+                    </div>
+                    <p>
+                        Lorem ipsum dolor sit amet,
+                        consectetur adipiscing elit.
+                        Fusce tempor ultricies quam,
+                        in blandit erat scelerisque in.
+                    </p>
+                </div>
+                <div class="col-lg-2">
+                    <div class="footer_title">Quick Links</div>
+                    <ul class="footer-links">
+                        <li>
+                            <a href="#">How It Works</a>
+                        </li>
+                        <li>
+                            <a href="#">Login</a>
+                        </li>
+                        <li>
+                            <a href="#">FAQ</a>
+                        </li>
+                        <li>
+                            <a href="#">Join as Brand</a>
+                        </li>
+                        <li>
+                            <a href="#">Join as Creator</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <div class="footer_title">Our Top Categories</div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <ul class="footer-links">
+                                <li>
+                                    <a href="#">How It Works</a>
+                                </li>
+                                <li>
+                                    <a href="#">Login</a>
+                                </li>
+                                <li>
+                                    <a href="#">FAQ</a>
+                                </li>
+                                <li>
+                                    <a href="#">Join as Brand</a>
+                                </li>
+                                <li>
+                                    <a href="#">Join as Creator</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-6">
+                            <ul class="footer-links">
+                                <li>
+                                    <a href="#">How It Works</a>
+                                </li>
+                                <li>
+                                    <a href="#">Login</a>
+                                </li>
+                                <li>
+                                    <a href="#">FAQ</a>
+                                </li>
+                                <li>
+                                    <a href="#">Join as Brand</a>
+                                </li>
+                                <li>
+                                    <a href="#">Join as Creator</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="footer_title">Contact Us</div>
+                    <p class="phone">
+                        <img src="assets/images/icons/phone.png">
+                        8860076957,7042998508
+                    </p>
+                    <p class="phone">
+                        <img src="assets/images/icons/email.png">
+                        info@arcinfosoft.com
+                    </p>
+                    <ul class="social-media">
+                        <li>
+                            <a href="#">
+                                <img src="assets/images/icons/insta.png" />
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="assets/images/icons/Facebook.png" />
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="assets/images/icons/x.png" />
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <img src="assets/images/icons/YouTube.png" />
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="~/assets/js/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="~/assets/js/slick/slick.min.js"></script>
+    <script src="~/assets/js/common.js"></script>
 </body>
+
 </html>
