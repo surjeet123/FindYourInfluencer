@@ -1,6 +1,5 @@
 ﻿using FindYourInfluencer.Helper;
 using FYI.Business.Models;
-using FYI.Data.Models;
 using FYI.Data.Services.ManageCustomer;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -19,7 +18,7 @@ namespace FindYourInfluencer.Controllers.API
         }
 
         [HttpPost("RegisterCustomer")]
-        public ActionResult<Customer> CustomerRegistration([FromBody] CustomerRegisterModel customer)
+        public ActionResult CustomerRegistration([FromBody] CustomerRegisterModel customer)
         {
             // Set the CreatedOn date to the current time
 
@@ -29,8 +28,9 @@ namespace FindYourInfluencer.Controllers.API
             // Return the newly added customer
             return Ok();
         }
+
         [HttpPost("ResendVerificationCode")]
-        public ActionResult<Customer> ResendVerificationCode([FromBody] string customerID)
+        public ActionResult ResendVerificationCode([FromBody] string customerID)
         {
             // Set the CreatedOn date to the current time
 
@@ -40,8 +40,9 @@ namespace FindYourInfluencer.Controllers.API
             // Return the newly added customer
             return Ok(true);
         }
+
         [HttpPost("VerifyCustomerVerificationCode")]
-        public ActionResult<Customer> VerifyCustomerVerificationCode([FromBody] string customerID, string code)
+        public ActionResult VerifyCustomerVerificationCode([FromBody] string customerID, string code)
         {
             // Set the CreatedOn date to the current time
 
@@ -51,6 +52,7 @@ namespace FindYourInfluencer.Controllers.API
             // Return the newly added customer
             return Ok(result);
         }
+
 
     }
 }

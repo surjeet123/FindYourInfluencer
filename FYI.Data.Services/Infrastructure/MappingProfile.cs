@@ -15,6 +15,8 @@ namespace FYI.Data.Services.Infrastructure
         {
             CreateMap<Customer, CustomerModel>().ReverseMap();
             CreateMap<Customer, CustomerRegisterModel>().ReverseMap();
+            CreateMap<Influencer, InfluencerModel>().ReverseMap();
+            CreateMap<Influencer, InfluencerRegisterModel>().ReverseMap();
         }
     }
 }
