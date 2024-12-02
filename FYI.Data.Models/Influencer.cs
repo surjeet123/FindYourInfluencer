@@ -31,5 +31,8 @@ namespace FYI.Data.Models
         [BsonElement("isprofileverified")]
         public bool IsProfileVerified { get; set; }
 
+		[BsonElement("issetupcomplete")]
+		public bool IsSetUpComplete { get; set; }
+
 	}
 }
