@@ -12,6 +12,7 @@ namespace FYI.Data.Services.ManageInfluencer
 		bool CreateInfluencer(InfluencerRegisterModel Model);
 		bool GenerateVerificationCode(string influencerID, bool checkExisting = false);
 		bool VerifyCode(string influencerID, string code);
+		string LoginInfluencer(InfluencerLoginModel Model);
 		bool UpdateOrInsertBasicDetailsAsync(InfluencerProfileDetailModel Model);
 	}
 }

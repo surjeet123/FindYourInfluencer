@@ -1,6 +1,8 @@
 ﻿using FYI.Business.Models;
+using FindYourInfluencer.Utilities;
 using FYI.Data.Services.ManageInfluencer;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FindYourInfluencer.Controllers.API.Influencer
 {
@@ -9,9 +11,11 @@ namespace FindYourInfluencer.Controllers.API.Influencer
 	public class InfluencerController : ControllerBase
 	{
 		private readonly IInfluencerService _InfluencerService;
-		public InfluencerController(IInfluencerService InfluencerService)
+		private readonly JWTTokenUtilities _jwtTokenUtilities;
+		public InfluencerController(IInfluencerService InfluencerService, JWTTokenUtilities jwtTokenUtilities)
 		{
 			_InfluencerService = InfluencerService;
+			_jwtTokenUtilities = jwtTokenUtilities;
 		}
 
 		[HttpPost("RegisterInfluencer")]
@@ -35,7 +39,23 @@ namespace FindYourInfluencer.Controllers.API.Influencer
 			return Ok(result);
 		}
 
+		[HttpPost("LoginInfluencer")]
+		public ActionResult LoginInfluencer([FromBody] InfluencerLoginModel Model)
+		{
+			var result = _InfluencerService.LoginInfluencer(Model);
+			if (result != null)
+			{        // Generate the JWT token
+				var token = _jwtTokenUtilities.GenerateToken(result, "Influencer");
+				return Ok(new { Token = token });
+			}
+			else
+			{
+				return Unauthorized(new { Message = "Invalid username or password." });
+			}
+		}
+
 		[HttpPost("UpdateBasicDetail")]
+		[Authorize(Roles = "Influencer")]
 		public ActionResult UpdateInfluencerBasicDetail([FromBody] InfluencerProfileDetailModel Model)
 		{
 			_InfluencerService.UpdateOrInsertBasicDetailsAsync(Model);

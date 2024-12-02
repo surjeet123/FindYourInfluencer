@@ -31,6 +31,11 @@ namespace FYI.Business.Models
 		public string? Password { get; set; }
 		public string? PasswordSalt { get; set; }
 	}
+	public class InfluencerLoginModel
+	{
+		public string? EmailAddress { get; set; }
+		public string? Password { get; set; }
+	}
 	public class InfluencerProfileDetailModel :  BaseModel
 	{
 		public string InfluencerID { get; set; }

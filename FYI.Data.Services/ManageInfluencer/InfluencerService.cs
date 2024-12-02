@@ -76,6 +76,18 @@ namespace FYI.Data.Services.ManageInfluencer
 			var model = _unitOfWork.InfluencerVerificationCodeRepository.GetFirstAsync(x => x.InfluencerID == influencerID && x.Active == true).Result;
 			return EncryptionUtilities.VerifyHashValue(code, model.VerificationCode, model.Salt);
 		}
+		public string LoginInfluencer(InfluencerLoginModel Model)
+		{
+			var influencerModel = _unitOfWork.InfluencerRepository.GetFirstAsync(x => x.EmailAddress == EncryptionUtilities.Encrypt(Model.EmailAddress) && x.Active == true).Result;
+			if (influencerModel != null)
+			{
+				var passwordModel = _unitOfWork.InfluencerPasswordRepository.GetFirstAsync(x => x.InfluencerID == influencerModel.Id && x.Active == true).Result;
+				var result = EncryptionUtilities.VerifyHashValue(Model.Password, passwordModel.Password, passwordModel.PasswordSalt);
+				if (result == true)
+					return influencerModel.Id.ToString();
+			}
+			return null;
+		}
 		public bool UpdateOrInsertBasicDetailsAsync(InfluencerProfileDetailModel Model)
 		{
 			// Check if the record exists
