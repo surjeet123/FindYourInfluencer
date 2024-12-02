@@ -35,4 +35,9 @@ namespace FYI.Business.Models
         public string? Password { get; set; }
         public string? PasswordSalt { get; set; }
     }
+    public class CustomerLoginModel
+    {
+        public string? EmailAddress { get; set; }
+        public string? Password { get; set; }
+    }
 }

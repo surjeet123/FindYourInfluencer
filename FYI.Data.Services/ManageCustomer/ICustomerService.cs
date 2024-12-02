@@ -12,5 +12,6 @@ namespace FYI.Data.Services.ManageCustomer
         bool CreateCustomer(CustomerRegisterModel Model);
         bool GenerateVerificationCode(string customerID, bool checkExisting = false);
         bool VerifyCode(string customerID, string code);
+        string LoginCustomer(CustomerLoginModel Model);
     }
 }

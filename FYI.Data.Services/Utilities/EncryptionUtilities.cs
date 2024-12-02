@@ -14,6 +14,7 @@ namespace FYI.Data.Services.Utilities
     public class EncryptionUtilities
     {
         private const string EncryptionKey = "xG7z4EmPCnVvT8D2j9qYhMqW8LyQR8sJ";
+        private static readonly byte[] FixedIV = Encoding.UTF8.GetBytes("Fixed16ByteIV123");
         public static HashedEncryptionModel HashRawText(string value)
         {
             // Generate a salt
@@ -51,7 +52,7 @@ namespace FYI.Data.Services.Utilities
         {
             using var aes = Aes.Create();
             aes.Key = Encoding.UTF8.GetBytes(EncryptionKey);
-            aes.IV = RandomNumberGenerator.GetBytes(16); // Zero IV for simplicity
+            aes.IV = FixedIV; // Zero IV for simplicity
 
             using var encryptor = aes.CreateEncryptor(aes.Key, aes.IV);
             using var ms = new MemoryStream();
@@ -67,11 +68,7 @@ namespace FYI.Data.Services.Utilities
 
             using var aes = Aes.Create();
             aes.Key = Encoding.UTF8.GetBytes(EncryptionKey);
-
-            // Extract the IV from the encrypted data
-            byte[] iv = new byte[16];
-            Array.Copy(cipherBytes, 0, iv, 0, iv.Length);
-            aes.IV = iv;
+            aes.IV = FixedIV;
 
             // Decrypt the data
             using var decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
