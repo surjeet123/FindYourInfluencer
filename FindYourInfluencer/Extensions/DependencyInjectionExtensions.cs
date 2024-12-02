@@ -1,4 +1,5 @@
 ﻿using FYI.Data.Services.ManageCustomer;
+using FYI.Data.Services.ManageInfluencer;
 using Microsoft.Extensions.DependencyInjection;
 namespace FindYourInfluencer.Extensions
 {
@@ -8,6 +9,7 @@ namespace FindYourInfluencer.Extensions
         {
             // Register all your scoped services here
             services.AddScoped<ICustomerService, CustomerService>();
+            services.AddScoped<IInfluencerService, InfluencerService>();
         }
     }
 }

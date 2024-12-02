@@ -16,7 +16,15 @@ namespace FYI.Data.Core
         private IRepository<Customer> _customerRepository;
         private IRepository<CustomerPassword> _customerPasswordRepository;
         private IRepository<CustomerVerificationCode> _customerVerificationCodeRepository;
-        public UnitOfWork(IMongoClient mongoClient)
+
+		#region Influencer
+		private IRepository<Influencer> _influencerRepository;
+		private IRepository<InfluencerPassword> _influencerPasswordRepository;
+		private IRepository<InfluencerVerificationCode> _influencerVerificationCodeRepository;
+		private IRepository<InfluencerProfileDetail> _influencerProfileRepository;
+		#endregion
+
+		public UnitOfWork(IMongoClient mongoClient)
         {
             _database = mongoClient.GetDatabase("FindYourInfluencer");
         }
@@ -24,8 +32,16 @@ namespace FYI.Data.Core
         public IRepository<CustomerPassword> CustomerPasswordRepository => _customerPasswordRepository ??= new GenericRepository<CustomerPassword>(_database, "customerpasswords");
         public IRepository<CustomerVerificationCode> CustomerVerificationCodeRepository => _customerVerificationCodeRepository ??= new GenericRepository<CustomerVerificationCode>(_database, "customerverificationcodes");
 
+		#region Influencer
 
-        public async Task Save()
+		public IRepository<Influencer> InfluencerRepository => _influencerRepository ??= new GenericRepository<Influencer>(_database, "influencers");
+		public IRepository<InfluencerPassword> InfluencerPasswordRepository => _influencerPasswordRepository ??= new GenericRepository<InfluencerPassword>(_database, "influencerpasswords");
+		public IRepository<InfluencerVerificationCode> InfluencerVerificationCodeRepository => _influencerVerificationCodeRepository ??= new GenericRepository<InfluencerVerificationCode>(_database, "influencerverificationcodes");
+		public IRepository<InfluencerProfileDetail> InfluencerProfileRepository => _influencerProfileRepository ??= new GenericRepository<InfluencerProfileDetail>(_database, "influencerprofiledetails");
+
+		#endregion
+
+		public async Task Save()
         {
             // You may not need to do anything here depending on your implementation
             // For some scenarios, MongoDB operations are automatically committed
