@@ -1,7 +1,9 @@
 using FindYourInfluencer.Extensions;
 using FindYourInfluencer.Helper;
+using FindYourInfluencer.Utilities;
 using FYI.Data.Core;
 using FYI.Data.Services.Infrastructure;
+using Microsoft.OpenApi.Models;
 using MongoDB.Driver;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,6 +21,7 @@ builder.Services.AddAuthorization();
 
 var mongoConnectionString = builder.Configuration.GetConnectionString("MongoDBConnection");
 builder.Services.AddSingleton<IMongoClient>(new MongoClient(mongoConnectionString));
+builder.Services.AddSingleton<JWTTokenUtilities>();
 builder.Services.AddScoped<UnitOfWork>();
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 
@@ -26,6 +29,28 @@ builder.Services.AddAutoMapper(typeof(MappingProfile));
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
+    options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        Description = "JWT Authorization header using the Bearer scheme. Example: \"Bearer {token}\"",
+        Name = "Authorization",
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.ApiKey
+    });
+
+    options.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            new string[] { }
+        }
+    });
     options.EnableAnnotations();  // Enables Swagger annotations
     options.OperationFilter<AddCustomSwaggerDocumentation>();
 });

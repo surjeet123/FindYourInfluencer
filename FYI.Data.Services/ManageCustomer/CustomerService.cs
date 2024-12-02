@@ -56,7 +56,7 @@ namespace FYI.Data.Services.ManageCustomer
                 // Define the update operation
                 var update = Builders<CustomerVerificationCode>.Update.Set(x => x.Active, false);
                 // Perform the update operation
-               _unitOfWork.CustomerVerificationCodeRepository.UpdateManyAsync((x => x.CustomerID == customerID && x.Active == true), update);
+                _unitOfWork.CustomerVerificationCodeRepository.UpdateManyAsync((x => x.CustomerID == customerID && x.Active == true), update);
             }
             var verificationCode = EncryptionUtilities.Generate4DigitNumber().ToString();
             var hashedCode = EncryptionUtilities.HashRawText(verificationCode);
@@ -76,6 +76,18 @@ namespace FYI.Data.Services.ManageCustomer
             var model = _unitOfWork.CustomerVerificationCodeRepository.GetFirstAsync(x => x.CustomerID == customerID && x.Active == true).Result;
             return EncryptionUtilities.VerifyHashValue(code, model.VerificationCode, model.Salt);
         }
-       
+        public string LoginCustomer(CustomerLoginModel Model)
+        {
+            var customerModel = _unitOfWork.CustomerRepository.GetFirstAsync(x => x.EmailAddress == EncryptionUtilities.Encrypt(Model.EmailAddress) && x.Active == true).Result;
+            if (customerModel != null)
+            {
+                var passwordModel = _unitOfWork.CustomerPasswordRepository.GetFirstAsync(x => x.CustomerID == customerModel.Id && x.Active == true).Result;
+                var result = EncryptionUtilities.VerifyHashValue(Model.Password, passwordModel.Password, passwordModel.PasswordSalt);
+                if (result == true)
+                    return customerModel.Id.ToString();
+            }
+            return null;
+        }
+
     }
 }

@@ -1,10 +1,13 @@
 ﻿using FindYourInfluencer.Helper;
+using FindYourInfluencer.Utilities;
 using FYI.Business.Models;
 using FYI.Data.Models;
 using FYI.Data.Services.ManageCustomer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
+using System.Data;
 
 namespace FindYourInfluencer.Controllers.API
 {
@@ -13,9 +16,11 @@ namespace FindYourInfluencer.Controllers.API
     public class CustomerController : ControllerBase
     {
         private readonly ICustomerService _CustomerService;
-        public CustomerController(ICustomerService CustomerService)
+        private readonly JWTTokenUtilities _jwtTokenUtilities;
+        public CustomerController(ICustomerService CustomerService, JWTTokenUtilities jwtTokenUtilities)
         {
             _CustomerService = CustomerService;
+            _jwtTokenUtilities = jwtTokenUtilities;
         }
 
         [HttpPost("RegisterCustomer")]
@@ -50,6 +55,26 @@ namespace FindYourInfluencer.Controllers.API
 
             // Return the newly added customer
             return Ok(result);
+        }
+        [HttpPost("LoginCustomer")]
+        public ActionResult LoginCustomer([FromBody] CustomerLoginModel Model)
+        {
+            var result = _CustomerService.LoginCustomer(Model);
+            if (result != null)
+            {        // Generate the JWT token
+                var token = _jwtTokenUtilities.GenerateToken(result, "Customer");
+                return Ok(new { Token = token });
+            }
+            else
+            {
+                return Unauthorized(new { Message = "Invalid username or password." });
+            }
+        }
+        [HttpPost("CustomerDetails")]
+        [Authorize(Roles = "Customer")]
+        public ActionResult GetCustomerDetails(string customerID)
+        {
+            return Ok();
         }
 
     }

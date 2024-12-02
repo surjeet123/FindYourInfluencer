@@ -26,6 +26,19 @@
                     ValidAudience = configuration["Jwt:Audience"],
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Jwt:Key"]))
                 };
+                options.Events = new JwtBearerEvents
+                {
+                    OnChallenge = context =>
+                    {
+                        context.Response.StatusCode = 401; // Unauthorized
+                        context.Response.ContentType = "application/json";
+                        var response = new
+                        {
+                            message = "Authorization failed. Please provide a valid token."
+                        };
+                        return context.Response.WriteAsJsonAsync(response);
+                    }
+                };
             });
 
             return services;
