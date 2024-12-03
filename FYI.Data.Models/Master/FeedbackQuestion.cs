@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FYI.Data.Models.Master
 {
-    public class FeedbackQuestion
+    public class FeedbackQuestion : BaseClass
     {
         [BsonId]
         [BsonRepresentation(BsonType.Int32)]
