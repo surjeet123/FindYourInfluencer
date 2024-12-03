@@ -91,7 +91,7 @@ namespace FYI.Data.Services.ManageInfluencer
 		public bool UpdateOrInsertBasicDetailsAsync(InfluencerProfileDetailModel Model)
 		{
 			// Check if the record exists
-			var existingDetails =  _unitOfWork.InfluencerProfileRepository.GetFirstAsync(x => x.InfluencerID == Model.InfluencerID);
+			var existingDetails =  _unitOfWork.InfluencerProfileRepository.GetFirstAsync(x => x.InfluencerID == Model.InfluencerID).Result;
 			if (existingDetails == null)
 			{
 				// If no record exists, insert a new record

@@ -1,0 +1,80 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main>
+    <section class="regiter section-space">
+        <div class="container">
+            @Html.Partial("_InfluencerRegistration");
+        </div>
+    </section>
+
+    <!-- FAQ Section-->
+    <section class="faq section-space">
+        <div class="container">
+            <h2 class="section-title"><span class="line"></span>Frequently Asked Questions</h2>
+            <div class="accordion" id="accordionExample">
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingOne">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            What is Influencer Marketing?
+                        </button>
+                    </h2>
+                    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                         data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            Influencer marketing is a type of social media marketing that leverages individuals with
+                            a strong online presence, known as
+                            influencers, to promote products, services, or brands. Influencers have established
+                            credibility and a loyal following in specific
+                            niches, making them effective at reaching and engaging targeted audiences.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingTwo">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            How Does Influencer Marketing Work?
+                        </button>
+                    </h2>
+                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                         data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            Influencer marketing is a type of social media marketing that leverages individuals with
+                            a strong online presence, known as
+                            influencers, to promote products, services, or brands. Influencers have established
+                            credibility and a loyal following in specific
+                            niches, making them effective at reaching and engaging targeted audiences.
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="headingThree">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            Why Is Influencer Marketing Important?
+                        </button>
+                    </h2>
+                    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                         data-bs-parent="#accordionExample">
+                        <div class="accordion-body">
+                            Influencer marketing is a type of social media marketing that leverages individuals with
+                            a strong online presence, known as
+                            influencers, to promote products, services, or brands. Influencers have established
+                            credibility and a loyal following in specific
+                            niches, making them effective at reaching and engaging targeted audiences.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- FAQ Section-->
+</main>
+
+<script src="~/assets/js/jquery-3.7.1.min.js"></script>
+<script src="~/customjs/genericutilities.js"></script>
+<script src="~/customjs/influencer/influencer.js"></script>
