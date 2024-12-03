@@ -12,13 +12,20 @@ InfluencerUtilities = {
         Model.EmailAddress = $("#txtInfluencerEmail").val();
         Model.MobileNo = $("#txtInfluencerMobile").val();
         Model.Password = $("#txtInfluencerPassword").val();
-        var result = GeneralGenericUtilities.callajaxReturnSuccess(
-            "/api/Influencer/RegisterInfluencer",
-            "POST",
-            JSON.stringify(Model)
-        );
+        var result = GeneralGenericUtilities.callajaxReturnSuccess("/Influencer/InfluencerRegistration", "POST",
+            Model, true);
         result.then(function (response) {
-            console.log(response);
+            if (response && response.message) {
+
+                alert(response.message);
+
+                if (response.message === "Influencer registered successfully") {
+                    // Optionally, redirect or perform other actions on success
+                    // window.location.href = '/some/other/page';
+                }
+            } else {
+                alert("An unexpected error occurred.");
+            }
             GeneralGenericUtilities.ajaxindicatorstop();
         })
 

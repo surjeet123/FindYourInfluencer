@@ -6,7 +6,8 @@
         return $.ajax({
             url: url,
             type: type,
-            data: form_data
+            data: form_data,
+            contentType: 'application/json',
         });
 
     },
@@ -19,6 +20,7 @@
             url: url,
             type: type,
             data: form_data,
+            contentType: 'application/json',
         });
 
     },
